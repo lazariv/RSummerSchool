@@ -1,0 +1,14 @@
+Package: myfirstpackage
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: Authors@R: c(person("Taras", "Lazariv", role=c("aut","cre"),email="some@mail.net"))
+Maintainer: Taras Lazariv <yourself@somewhere.net>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+Imports: Rcpp (>= 0.12.12)
+LinkingTo: Rcpp
+RoxygenNote: 6.0.1

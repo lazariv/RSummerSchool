@@ -1,0 +1,51 @@
+---
+title: "Iris Data Set"
+author: "TL"
+date: "26 September 2017"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+data("iris")
+library("xtable")
+library("stargazer")
+```
+
+***
+
+## Description
+```{r result}
+summary(iris)
+```
+
+```{r result 2, results="asis", echo=FALSE}
+options(xtable.comment = FALSE)
+xtable::xtable(summary(iris), type = "latex", comment = FALSE, caption = "Summary of the data set")
+```
+
+## Scatterplot Matrix
+```{r matrix, echo=FALSE}
+plot(iris)
+```
+
+```{r, results='asis'}
+iris[['Is.Versicolor']] <- as.numeric(iris[['Species']] == 'versicolor')
+iris[['Is.Virginica']] <- as.numeric(iris[['Species']] == 'virginica')
+fit.1 <- glm(Is.Versicolor ~ Petal.Length + Sepal.Length, data = iris)
+fit.2 <- glm(Is.Virginica ~ Petal.Length + Sepal.Length, data = iris)
+#summary(fit)
+output <- capture.output(stargazer(fit.1, fit.2, title = 'Regression Results',  summary=FALSE, header=FALSE))
+cat(output)
+broom::tidy(fit.1)
+```
+
+
+
+
+
+
+

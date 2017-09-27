@@ -1,0 +1,29 @@
+---
+title: "The Iris Data Set"
+author: "Fabian Schroeder"
+date: "September 26, 2017"
+output: pdf_document
+bibliography: bibliography.bib
+---
+
+```{r setup, include = FALSE}
+library("xtable")
+library("stargazer")
+data(iris)
+```
+
+***
+
+## Description
+
+This famous dataset [@fisher, @anderson] gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are *Iris setosa, verscolor*, and *virginica*. 
+
+![Illustration of the Variables of the iris data set.](iris.png)
+
+
+```{r summary, echo = FALSE, results = TRUE}
+summary(iris)
+```
+
+
+## References
